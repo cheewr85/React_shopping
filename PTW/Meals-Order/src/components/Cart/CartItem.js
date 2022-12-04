@@ -1,8 +1,18 @@
+import { useContext, memo } from "react";
 import classes from "./CartItem.module.css";
+import { SetCartStateContext } from "../../App";
 
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
+  const { onRemove, onAdd } = useContext(SetCartStateContext);
 
+  const handleRemoveButtonCLick = () => {
+    onRemove(props.id);
+  };
+  const handleAddButtonCLick = () => {
+    onAdd(props.id);
+  };
+  console.log(`amout : ${props.amount}`);
   return (
     <li className={classes["cart-item"]}>
       <div>
@@ -13,11 +23,11 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={props.onRemove}>−</button>
-        <button onClick={props.onAdd}>+</button>
+        <button onClick={handleRemoveButtonCLick}>-</button>
+        <button onClick={handleAddButtonCLick}>+</button>
       </div>
     </li>
   );
 };
 
-export default CartItem;
+export default memo(CartItem);

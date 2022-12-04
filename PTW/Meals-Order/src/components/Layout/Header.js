@@ -2,6 +2,7 @@ import classes from "./Header.module.css";
 import img from "../../img/meals.jpg";
 import MealsSummary from "./MealsSummary";
 import HeaderCartButton from "./HeaderCartButton";
+import { memo } from "react";
 
 const Header = () => {
   return (
@@ -18,4 +19,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);
