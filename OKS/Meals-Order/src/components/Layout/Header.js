@@ -8,15 +8,15 @@ import React, { Fragment } from "react";
 
 import mealsImage from "../../asset/meals.jpg";
 import HeaderCartButton from "./HeaderCartButton";
-import MealsSummary from "./MealsSummary.js";
+import MealsSummary from "../Meals/MealsSummary";
 import classes from "./Header.module.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Fragment>
       <header className={classes.header}>
         <h1>ReactMeals</h1>
-        <HeaderCartButton />
+        <HeaderCartButton onClick={props.onShowCart} />
       </header>
       <div className={classes["main-image"]}>
         <img src={mealsImage} alt="meals" />
