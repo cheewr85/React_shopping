@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState, memo } from "react";
 import MealItem from "./MealItem";
 import classes from "./AvailableMeals.module.css";
 import Card from "../UI/Card.module.css";
@@ -34,6 +34,8 @@ const AvailableMeals = () => {
 
   const [mealState, setMealState] = useState(DUMMY_MEALS);
 
+  // console.log(mealState);
+
   return (
     <div className={classes.meals}>
       <div className={Card.card}>
@@ -47,4 +49,4 @@ const AvailableMeals = () => {
   );
 };
 
-export default AvailableMeals;
+export default memo(AvailableMeals);
